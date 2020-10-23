@@ -21,19 +21,20 @@ public class MQProducter extends MqApplicationTests {
     @Test
     public void productDirects(){
         rabbitTemplate.convertAndSend("directs","logs","logs Message");
-//        rabbitTemplate.convertAndSend("directs","error","Error Message");
+        rabbitTemplate.convertAndSend("directs","error","Error Message");
     }
 
     //fanout 广播--发布者-订阅模式
     @Test
     public void productFanout(){
+        //广播模式--无需配置routingKey,因为所有队列都会收到
         rabbitTemplate.convertAndSend("logs","","Hello FonoutQueue");
     }
 
     //work模式
     @Test
     public void productWork(){
-        for(int i=0;i<30;i++)
+        for(int i=0;i<10;i++)
             rabbitTemplate.convertAndSend("workQueue","This is workQueue"+i);
     }
 

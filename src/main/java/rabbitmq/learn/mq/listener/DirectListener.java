@@ -28,9 +28,6 @@ public class DirectListener {
             )
     })
     public void getAll(String msg){
-        System.out.println("AllMsg开始成功:"+msg);
-        int temp=10/0;
-        System.out.println("AllMsg消费成功:"+msg);
+        System.out.println("AllMsg:"+msg);
     }
-
 }

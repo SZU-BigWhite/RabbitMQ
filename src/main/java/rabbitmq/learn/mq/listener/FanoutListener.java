@@ -11,7 +11,7 @@ public class FanoutListener {
 
     @RabbitListener(bindings = {
             @QueueBinding(
-                    value = @Queue,//临时队列
+                    value = @Queue,//临时队列，队列名会随机
                     exchange = @Exchange(name = "logs",type = "fanout") //绑定Exchange
             )
     })
@@ -22,7 +22,7 @@ public class FanoutListener {
 
     @RabbitListener(bindings = {
             @QueueBinding(
-                    value = @Queue,//临时队列
+                    value = @Queue,//临时队列，队列名会随机
                     exchange = @Exchange(name = "logs",type = "fanout")
 
             )
